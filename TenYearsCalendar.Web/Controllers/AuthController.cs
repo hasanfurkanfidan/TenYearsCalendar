@@ -20,14 +20,14 @@ namespace TenYearsCalendar.Web.Controllers
         {
             return View();
         }
-        [Route("kayit-ol")]
+       
         public IActionResult Register()
         {
             var model = new AppUserRegisterDto();
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult>RegisterPost(AppUserRegisterDto appUserRegisterDto)
+        public async Task<IActionResult>Register(AppUserRegisterDto appUserRegisterDto)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace TenYearsCalendar.Web.Controllers
                         Firstname = appUserRegisterDto.Name,
                         Lastname = appUserRegisterDto.Lastname,
                         Email = appUserRegisterDto.Email,
-                        
+                        UserName = appUserRegisterDto.Email
                     };
                     var result =  await _userManager.CreateAsync(newUser, appUserRegisterDto.Password);
                     if (result.Succeeded)
@@ -53,7 +53,7 @@ namespace TenYearsCalendar.Web.Controllers
                 }
                 ModelState.AddModelError("", "Kullanıcı sistemde zaten kayıtlı!");
             }
-            return View("Register", new { appUserRegisterDto });
+            return View(appUserRegisterDto);
         }
     }
 }

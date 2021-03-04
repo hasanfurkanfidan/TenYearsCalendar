@@ -13,7 +13,7 @@ namespace TenYearsCalendar.Core.DataAccess.EntityFrameworkCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=TenYearsChallenge;Integrated Security=true");
         }
         public DbSet<Day> Days { get; set; }
         public DbSet<DaylyTodo> DaylyTodos { get; set; }

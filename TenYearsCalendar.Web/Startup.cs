@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,10 +22,12 @@ namespace TenYearsCalendar.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.SolveDependencies();
+            services.AddDbContext<Context>();
+
             services.AddIdentity<AppUser, Role>(opt =>
             {
                 opt.Password.RequireDigit = false;
-                opt.Password.RequireUppercase = true;
+                opt.Password.RequireUppercase = false;
                 opt.Password.RequiredLength = 6;
                 opt.Password.RequireLowercase = false;
                 opt.Password.RequireNonAlphanumeric = false;
@@ -43,7 +46,7 @@ namespace TenYearsCalendar.Web
                 opt.LoginPath = "/Auth/Login";
             });
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,10 +61,10 @@ namespace TenYearsCalendar.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+
+                endpoints.MapControllerRoute(name: "areas", pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Auth}/{action=Register}/{id?}");
+
             });
         }
     }
