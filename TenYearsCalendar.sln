@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TenYearsCalendar.Core", "TenYearsCalendar.Core\TenYearsCalendar.Core.csproj", "{0FD78805-986A-4BB5-A4C6-E3D53A0DF80F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenYearsCalendar.Mvc", "TenYearsCalendar.Mvc\TenYearsCalendar.Mvc.csproj", "{65DA8E8A-CEC5-4CA6-A1B5-C317AEAC923B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{0FD78805-986A-4BB5-A4C6-E3D53A0DF80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD78805-986A-4BB5-A4C6-E3D53A0DF80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD78805-986A-4BB5-A4C6-E3D53A0DF80F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65DA8E8A-CEC5-4CA6-A1B5-C317AEAC923B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65DA8E8A-CEC5-4CA6-A1B5-C317AEAC923B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65DA8E8A-CEC5-4CA6-A1B5-C317AEAC923B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65DA8E8A-CEC5-4CA6-A1B5-C317AEAC923B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
