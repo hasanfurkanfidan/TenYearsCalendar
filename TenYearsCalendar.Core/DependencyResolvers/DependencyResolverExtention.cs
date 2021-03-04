@@ -23,7 +23,7 @@ namespace TenYearsCalendar.Core.DependencyResolvers
             services.AddScoped<IMonthRepository, EfMonthRepository>();
             services.AddScoped<IYearlyTargetRepository, EfYearlyTargetRepository>();
             services.AddScoped<IYearRepository, EfYearRepository>();
-
+            services.AddScoped<IYearAppUserRepository, EfYearAppUserRepository>();
 
             services.AddTransient<IValidator<AppUserRegisterDto>, RegisterValidationRule>();
         }

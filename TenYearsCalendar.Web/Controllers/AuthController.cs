@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TenYearsCalendar.Core.DataAccess.Interfaces;
 using TenYearsCalendar.Core.Dtos;
 using TenYearsCalendar.Core.Entities.Concrete;
 
@@ -12,8 +13,10 @@ namespace TenYearsCalendar.Web.Controllers
     public class AuthController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        public AuthController(UserManager<AppUser> userManager)
+        private readonly IYearRepository _yearRepository;
+        public AuthController(UserManager<AppUser> userManager,IYearRepository yearRepository)
         {
+            _yearRepository = yearRepository;
             _userManager = userManager;
         }
         public IActionResult Login()
@@ -44,6 +47,8 @@ namespace TenYearsCalendar.Web.Controllers
                     var result =  await _userManager.CreateAsync(newUser, appUserRegisterDto.Password);
                     if (result.Succeeded)
                     {
+                       
+                        
                         return View("Login");
                     }
                     foreach (var item in result.Errors)
