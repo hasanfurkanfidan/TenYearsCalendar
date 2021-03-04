@@ -10,5 +10,7 @@ namespace TenYearsCalendar.Core.Entities.Concrete
 {
     public class AppUser:IdentityUser<int>,IEntity
     {
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
     }
 }

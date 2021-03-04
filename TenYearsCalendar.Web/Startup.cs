@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TenYearsCalendar.Core.DataAccess.EntityFrameworkCore;
+using TenYearsCalendar.Core.DependencyResolvers;
 using TenYearsCalendar.Core.Entities.Concrete;
 
 namespace TenYearsCalendar.Web
@@ -19,6 +20,7 @@ namespace TenYearsCalendar.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.SolveDependencies();
             services.AddIdentity<AppUser, Role>(opt =>
             {
                 opt.Password.RequireDigit = false;

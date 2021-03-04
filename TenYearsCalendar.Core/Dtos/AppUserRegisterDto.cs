@@ -10,6 +10,8 @@ namespace TenYearsCalendar.Core.Dtos
     {
         public string Email { get; set; }
         public string Name { get; set; }
+        public string Lastname { get; set; }
+        public bool Privacy { get; set; }
         public string Password { get; set; }
         public string PasswordVerify { get; set; }
     }

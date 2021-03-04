@@ -34,7 +34,14 @@ namespace TenYearsCalendar.Web.Controllers
                 var user = await _userManager.FindByEmailAsync(appUserRegisterDto.Email);
                 if (user==null)
                 {
-                   var result =  await _userManager.CreateAsync(user, appUserRegisterDto.Password);
+                    var newUser = new AppUser()
+                    {
+                        Firstname = appUserRegisterDto.Name,
+                        Lastname = appUserRegisterDto.Lastname,
+                        Email = appUserRegisterDto.Email,
+                        
+                    };
+                    var result =  await _userManager.CreateAsync(newUser, appUserRegisterDto.Password);
                     if (result.Succeeded)
                     {
                         return View("Login");
